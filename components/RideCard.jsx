@@ -11,9 +11,9 @@ export default function RideCard({ ride, showLand = true }) {
   const status = isOpen ? "Open" : "Closed";
 
   return (
-    <article className="flex min-h-[200px] flex-col justify-between rounded-xl border border-zinc-800 bg-zinc-900/60 p-5 ring-1 ring-white/5 transition-colors hover:border-zinc-700 hover:bg-zinc-900">
+    <article className="flex min-h-[200px] flex-col justify-between rounded-xl border border-zinc-200 bg-white/90 p-5 ring-1 ring-zinc-900/5 transition-colors hover:border-zinc-300 hover:bg-white dark:border-zinc-800 dark:bg-zinc-900/60 dark:ring-white/5 dark:hover:border-zinc-700 dark:hover:bg-zinc-900">
       <div className="flex items-start justify-between gap-3">
-        <h3 className="text-base font-semibold leading-snug text-zinc-100">
+        <h3 className="text-base font-semibold leading-snug text-zinc-900 dark:text-zinc-100">
           {ride.name}
         </h3>
         <span
@@ -31,15 +31,17 @@ export default function RideCard({ ride, showLand = true }) {
           {isOpen ? (
             <>
               {ride.wait_time}
-              <span className="ml-1.5 text-lg font-medium text-zinc-500">min</span>
+              <span className="ml-1.5 text-lg font-medium text-zinc-500">
+                min
+              </span>
             </>
           ) : (
-            <span className="text-3xl text-zinc-600">—</span>
+            <span className="text-3xl text-zinc-400 dark:text-zinc-600">—</span>
           )}
         </p>
       </div>
 
-      <div className="flex items-center justify-between gap-2 border-t border-zinc-800 pt-3 text-xs text-zinc-500">
+      <div className="flex items-center justify-between gap-2 border-t border-zinc-200 pt-3 text-xs text-zinc-500 dark:border-zinc-800">
         <span className="flex items-center gap-1.5">
           <Clock className="size-3.5 shrink-0" aria-hidden />
           <time dateTime={ride.last_updated}>
@@ -47,7 +49,9 @@ export default function RideCard({ ride, showLand = true }) {
           </time>
         </span>
         {showLand && ride.land && (
-          <span className="truncate text-right text-zinc-600">{ride.land}</span>
+          <span className="truncate text-right text-zinc-400 dark:text-zinc-600">
+            {ride.land}
+          </span>
         )}
       </div>
     </article>

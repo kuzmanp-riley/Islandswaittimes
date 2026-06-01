@@ -1,11 +1,20 @@
-import { formatLastUpdated, getStatusStyles, getWaitColor, getWaitGlow } from "@/lib/waitTimes";
+import {
+  formatLastUpdated,
+  getStatusStyles,
+  getWaitColor,
+  getWaitGlow,
+} from "@/lib/waitTimes";
 
 export default function HeroRideCard({ ride, label, subtitle }) {
   if (!ride) {
     return (
-      <div className="relative overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/60 p-5">
-        <p className="text-sm font-medium text-zinc-400">{label}</p>
-        <p className="mt-4 text-3xl font-bold text-zinc-600">—</p>
+      <div className="relative overflow-hidden rounded-2xl border border-zinc-200 bg-white/80 p-5 dark:border-zinc-800 dark:bg-zinc-900/60">
+        <p className="text-sm font-medium text-zinc-500 dark:text-zinc-400">
+          {label}
+        </p>
+        <p className="mt-4 text-3xl font-bold text-zinc-400 dark:text-zinc-600">
+          —
+        </p>
         <p className="mt-2 text-xs text-zinc-500">No data</p>
       </div>
     );
@@ -16,7 +25,7 @@ export default function HeroRideCard({ ride, label, subtitle }) {
   const glow = getWaitGlow(ride.wait_time, isOpen);
 
   return (
-    <article className="relative overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/80 p-5 shadow-lg ring-1 ring-white/5">
+    <article className="relative overflow-hidden rounded-2xl border border-zinc-200 bg-white/90 p-5 shadow-lg ring-1 ring-zinc-900/5 dark:border-zinc-800 dark:bg-zinc-900/80 dark:ring-white/5">
       <div
         className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${glow}`}
         aria-hidden
@@ -24,7 +33,7 @@ export default function HeroRideCard({ ride, label, subtitle }) {
       <div className="relative flex flex-col gap-3">
         <div className="flex items-start justify-between gap-2">
           <div>
-            <h3 className="text-lg font-bold tracking-tight text-white">
+            <h3 className="text-lg font-bold tracking-tight text-zinc-900 dark:text-white">
               {label}
             </h3>
             <p className="text-xs text-zinc-500">{subtitle}</p>
@@ -36,7 +45,9 @@ export default function HeroRideCard({ ride, label, subtitle }) {
           </span>
         </div>
 
-        <p className={`text-4xl font-bold tabular-nums sm:text-5xl ${waitColor}`}>
+        <p
+          className={`text-4xl font-bold tabular-nums sm:text-5xl ${waitColor}`}
+        >
           {isOpen ? (
             <>
               {ride.wait_time}

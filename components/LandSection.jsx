@@ -7,9 +7,9 @@ export default function LandSection({ land }) {
 
   return (
     <section className="scroll-mt-24">
-      <div className="mb-4 flex flex-col gap-1 border-b border-zinc-800 pb-4 sm:flex-row sm:items-end sm:justify-between">
+      <div className="mb-4 flex flex-col gap-1 border-b border-zinc-200 pb-4 sm:flex-row sm:items-end sm:justify-between dark:border-zinc-800">
         <div>
-          <h2 className="text-xl font-bold tracking-tight text-white sm:text-2xl">
+          <h2 className="text-xl font-bold tracking-tight text-zinc-900 sm:text-2xl dark:text-white">
             {land.name}
           </h2>
           <p className="mt-0.5 text-sm text-zinc-500">
